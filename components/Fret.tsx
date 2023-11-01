@@ -1,14 +1,15 @@
-import React from 'react'
+import String from './String'
 
 export default function Fret() {
   return (
     <div className='fret'>
-      <div className='string'></div>
-      <div className='string'></div>
-      <div className='string'></div>
-      <div className='string'></div>
-      <div className='string'></div>
-      <div className='string'></div>
+      <String />
+      <String />
+      <String />
+      <String />
+      <String />
+      <String />
+      <String />
     </div>
   )
 }
