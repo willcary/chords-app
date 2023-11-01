@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --max-width: 1100px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -5,9 +9,9 @@
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
   --clr-background: #404040;
-  --clr-white: #FFFFFF;
+  --clr-white: #ffffff;
   --clr-black: #000000;
-  --clr-primary: #38B27F;
+  --clr-primary: #38b27f;
   --clr-transparent: #ffffff00;
 }
 
@@ -16,7 +20,7 @@
     --clr-background: #dcdcdc;
     --clr-white: #000;
     --clr-black: #fff;
-    --clr-primary: #38B27F;
+    --clr-primary: #38b27f;
     --clr-transparent: #ffffff00;
   }
 }
@@ -35,7 +39,7 @@ body {
 
 body {
   color: var(--clr-white);
-  background: var(--clr-background)
+  background: var(--clr-background);
 }
 
 main,
@@ -52,7 +56,7 @@ nav {
   padding: 2rem 0;
 }
 
-nav>* {
+nav > * {
   margin: 0 1rem;
 }
 
@@ -77,11 +81,12 @@ a {
   align-items: center;
   margin: 2rem auto;
   padding: 1rem;
-  border: dotted 1px var(--clr-primary)
+  border: dotted 1px var(--clr-primary);
 }
 
 .tab-header {
   width: 246px;
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
