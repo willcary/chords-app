@@ -12,8 +12,8 @@ export default function TabHeader() {
         <TabHeaderO />
         <TabHeaderO />
         <TabHeaderO />
+        <p className='base-fret'>5</p>
       </div>
-      <p className=''>5</p>
     </>
   )
 }

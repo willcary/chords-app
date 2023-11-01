@@ -124,6 +124,13 @@ a {
   transform: rotate(45deg);
 }
 
+.base-fret {
+  position: absolute;
+  top: 3rem;
+  left: -1rem;
+  font-size: 2rem;
+}
+
 .fret {
   width: 205px;
   height: 70px;
