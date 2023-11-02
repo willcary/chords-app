@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Navbar from '@/components/Navbar'
 import { Inter } from '@next/font/google'
-import Tab from '@/components/tab/Tab'
+import Tabs from '@/components/Tabs'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,8 +16,8 @@ export default function Home() {
       </Head>
       <Navbar />
       <main>
-        <h1>Hello Chord app!</h1>
-        <Tab />
+        <h1>Guitar Tabs</h1>
+        <Tabs />
       </main>
     </>
   )

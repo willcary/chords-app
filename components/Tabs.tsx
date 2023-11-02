@@ -1,3 +1,5 @@
+import Tab from './tab/Tab'
+
 export default function Tabs() {
   const exampleChord = {
     key: 'D',
@@ -35,5 +37,12 @@ export default function Tabs() {
       },
     ],
   }
-  return <div></div>
+  return (
+    <div className='tabs'>
+      <Tab tone='D' suffix='sus2' positions={exampleChord.positions[0]} />
+      <Tab tone='D' suffix='sus2' positions={exampleChord.positions[1]} />
+      <Tab tone='D' suffix='sus2' positions={exampleChord.positions[2]} />
+      <Tab tone='D' suffix='sus2' positions={exampleChord.positions[3]} />
+    </div>
+  )
 }

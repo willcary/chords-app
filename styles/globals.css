@@ -42,6 +42,10 @@ body {
   background: var(--clr-background);
 }
 
+h1 {
+  font-size: 2.5rem;
+}
+
 main,
 nav {
   max-width: 1100px;
@@ -72,6 +76,11 @@ a {
 }
 
 /* Tab Styles */
+.tabs {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
 .tab-container {
   width: 340px;
   /* height: 430px; */
@@ -126,8 +135,8 @@ a {
 
 .base-fret {
   position: absolute;
-  top: 3rem;
-  left: -1rem;
+  top: 2.7rem;
+  left: -1.2rem;
   font-size: 2rem;
 }
 
