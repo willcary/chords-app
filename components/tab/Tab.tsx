@@ -1,33 +1,26 @@
 import TabHeader from '../tab-header/TabHeader'
 import Fret from './Fret'
-
-const exampleChord = {
-  key: 'D',
-  suffix: 'sus2',
-  positions: [
-    {
-      frets: [-1, -1, 0, 2, 3, 0],
-      fingers: [0, 0, 0, 2, 3, 0],
-      baseFret: 1,
-      barres: [],
-      midi: [50, 57, 62, 64],
-    },
-  ],
-}
 interface TabProps {
   tone: string
   suffix: string
-  positions: number[]
+  positions: {
+    frets: number[]
+    fingers: number[]
+    capo?: boolean
+    baseFret: number
+    barres: number[]
+    midi?: number[]
+  }
 }
 
 export default function Tab({ tone, suffix, positions }: TabProps) {
-  function createTabArray(data: number[]): number[][] {
+  function createTabArray(frets: number[], fingers: number[]): number[][] {
     const tabArray = []
     for (let i = 1; i <= 4; i++) {
       let subArray: number[] = []
-      data.forEach((position: number, index: number) => {
-        if (position === i) {
-          subArray.push(position)
+      frets.forEach((fret: number, index: number) => {
+        if (fret === i) {
+          subArray.push(fingers[index])
         } else {
           subArray.push(0)
         }
@@ -37,13 +30,18 @@ export default function Tab({ tone, suffix, positions }: TabProps) {
     return tabArray
   }
 
-  const tabArray = createTabArray(exampleChord.positions[0].fingers)
+  const tabArray = createTabArray(positions.frets, positions.fingers)
+  // const tabArray = createTabArray([0, 0, 0, 2, 3, 0])
 
   return (
     <div className='tab-container'>
-      {/* tab header will need key, suffix, and frets props passed to it */}
-      <TabHeader />
-      {/* Each fret will need an array with fingers passed as props */}
+      {/* tab header will need the tone, suffix, and frets props passed to it */}
+      <TabHeader
+        tone={tone}
+        suffix={suffix}
+        baseFret={positions.baseFret}
+        frets={positions.frets}
+      />
       {tabArray.map((tab: number[], index: number) => {
         return <Fret key={`${tone}${suffix}-${index}`} strings={tab} />
       })}
