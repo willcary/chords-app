@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Navbar from '@/components/Navbar'
 import { Inter } from '@next/font/google'
 import Tabs from '@/components/Tabs'
+import exampleChord from '@/assets/exampleChord'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +18,11 @@ export default function Home() {
       <Navbar />
       <main>
         <h1>Guitar Tabs</h1>
-        <Tabs />
+        <Tabs
+          key={exampleChord.key}
+          suffix={exampleChord.suffix}
+          positions={exampleChord.positions}
+        />
       </main>
     </>
   )

@@ -1,13 +1,30 @@
 import Tab from './tab/Tab'
-import exampleChord from '@/assets/exampleChord'
 
-export default function Tabs() {
+interface chordInterface {
+  key: string
+  suffix: string
+  positions: {
+    frets: number[]
+    fingers: number[]
+    capo?: boolean
+    baseFret: number
+    barres: number[]
+    midi?: number[]
+  }[]
+}
+
+//Refactor props to use multiple chords as in the guitar.json file.
+export default function Tabs({ key, suffix, positions }: chordInterface) {
   return (
     <div className='tabs'>
-      <Tab tone='D' suffix='sus2' positions={exampleChord.positions[0]} />
-      <Tab tone='D' suffix='sus2' positions={exampleChord.positions[1]} />
-      <Tab tone='D' suffix='sus2' positions={exampleChord.positions[2]} />
-      <Tab tone='D' suffix='sus2' positions={exampleChord.positions[3]} />
+      {positions.map((position) => (
+        <Tab
+          key={`${key}-${suffix}-${position.frets}`}
+          tone='D'
+          suffix='sus2'
+          positions={position}
+        />
+      ))}
     </div>
   )
 }
