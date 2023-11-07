@@ -1,12 +1,6 @@
 import React from 'react'
 
-export default function String({
-  key,
-  string,
-}: {
-  key: string
-  string: number
-}) {
+export default function String({ string }: { string: number }) {
   return string !== 0 ? (
     <div className='string'>
       <div className='finger'>{string}</div>
