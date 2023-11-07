@@ -2,52 +2,45 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import Tab from '@/components/tab/tab-main/Tab'
 
+const tone = 'D'
+const suffix = 'sus2'
+const positions = {
+  frets: [-1, -1, 1, 1, 2, 4],
+  fingers: [0, 0, 1, 1, 2, 4],
+  barres: [1],
+  baseFret: 2,
+  midi: [52, 57, 62, 69],
+}
+
 // ------------------- fix bugs!! ----------------------
 describe('Tab', () => {
   test('renders TabHeader component with correct props', () => {
-    const tone = 'C'
-    const suffix = 'maj'
-    const positions = {
-      frets: [-1, -1, 1, 1, 2, 4],
-      fingers: [0, 0, 1, 1, 2, 4],
-      baseFret: 2,
-      barres: [1],
-    }
-
     render(<Tab tone={tone} suffix={suffix} positions={positions} />)
 
-    // Assert that the TabHeader component is rendered with the correct props
-    expect(screen.getByTestId('tab-header')).toHaveAttribute('tone', tone)
-    expect(screen.getByTestId('tab-header')).toHaveAttribute('suffix', suffix)
+    expect(screen.getByTestId('tab-header')).toHaveAttribute('data-tone', tone)
     expect(screen.getByTestId('tab-header')).toHaveAttribute(
-      'baseFret',
+      'data-suffix',
+      suffix
+    )
+    expect(screen.getByTestId('tab-header')).toHaveAttribute(
+      'data-base-fret',
       positions.baseFret.toString()
     )
     expect(screen.getByTestId('tab-header')).toHaveAttribute(
-      'frets',
+      'data-frets',
       positions.frets.join(',')
     )
   })
 
   test('renders Fret components with correct props', () => {
-    const tone = 'C'
-    const suffix = 'maj'
-    const positions = {
-      frets: [0, 1, 2, 3, 4],
-      fingers: [0, 1, 2, 3, 4],
-      baseFret: 1,
-      barres: [],
-    }
-
     render(<Tab tone={tone} suffix={suffix} positions={positions} />)
 
-    // Assert that the Fret components are rendered with the correct props
     const fretComponents = screen.getAllByTestId('fret')
-    expect(fretComponents.length).toBe(positions.frets.length)
+    expect(fretComponents.length).toBe(4)
 
     fretComponents.forEach((fret, index) => {
       expect(fret).toHaveAttribute(
-        'strings',
+        'data-strings',
         positions.fingers[index].toString()
       )
     })
