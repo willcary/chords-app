@@ -8,10 +8,10 @@ describe('Tab', () => {
     const tone = 'C'
     const suffix = 'maj'
     const positions = {
-      frets: [0, 1, 2, 3, 4],
-      fingers: [0, 1, 2, 3, 4],
-      baseFret: 1,
-      barres: [],
+      frets: [-1, -1, 1, 1, 2, 4],
+      fingers: [0, 0, 1, 1, 2, 4],
+      baseFret: 2,
+      barres: [1],
     }
 
     render(<Tab tone={tone} suffix={suffix} positions={positions} />)
