@@ -19,7 +19,7 @@ export default function Home() {
       <main>
         <h1>Guitar Tabs</h1>
         <Tabs
-          key={exampleChord.key}
+          tone={exampleChord.key}
           suffix={exampleChord.suffix}
           positions={exampleChord.positions}
         />

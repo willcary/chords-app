@@ -1,7 +1,7 @@
 import Tab from './tab/Tab'
 
 interface chordInterface {
-  key: string
+  tone: string
   suffix: string
   positions: {
     frets: number[]
@@ -14,12 +14,12 @@ interface chordInterface {
 }
 
 //Refactor props to use multiple chords as in the guitar.json file.
-export default function Tabs({ key, suffix, positions }: chordInterface) {
+export default function Tabs({ tone, suffix, positions }: chordInterface) {
   return (
     <div className='tabs'>
       {positions.map((position) => (
         <Tab
-          key={`${key}-${suffix}-${position.frets}`}
+          key={`${tone}-${suffix}-${position.frets}`}
           tone='D'
           suffix='sus2'
           positions={position}

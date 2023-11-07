@@ -31,11 +31,9 @@ export default function Tab({ tone, suffix, positions }: TabProps) {
   }
 
   const tabArray = createTabArray(positions.frets, positions.fingers)
-  // const tabArray = createTabArray([0, 0, 0, 2, 3, 0])
 
   return (
     <div className='tab-container'>
-      {/* tab header will need the tone, suffix, and frets props passed to it */}
       <TabHeader
         tone={tone}
         suffix={suffix}
