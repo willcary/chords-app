@@ -16,8 +16,8 @@ export default function TabHeader({
 }: TabHeaderProps) {
   return (
     <>
-      <h2>Dsus2</h2>
-      <div className='tab-header'>
+      <h2>{tone + suffix}</h2>
+      <div className='tab-header' data-testid='tab-header'>
         {frets.map((fret: number, index: number) => {
           return fret === -1 ? (
             <TabHeaderX key={`${tone}${suffix}-${index}`} />

@@ -19,6 +19,14 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "__tests__/tab/tab-header/symbols/TabHeaderO.test.js",
+    "__tests__/tab/tab-header/symbols/TabHeaderX.test.js",
+    "__tests__/tab/tab-header/symbols/TabHeaderO.test.js",
+    "__tests__/tab/tab-header/TabHeader.test.js"
+  ],
   "exclude": ["node_modules"]
 }

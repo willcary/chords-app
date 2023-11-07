@@ -15,25 +15,23 @@ interface TabProps {
 
 export default function Tab({ tone, suffix, positions }: TabProps) {
   function createTabArray(frets: number[], fingers: number[]): number[][] {
-    const tabArray = []
-    for (let i = 1; i <= 4; i++) {
-      let subArray: number[] = []
-      frets.forEach((fret: number, index: number) => {
-        if (fret === i) {
-          subArray.push(fingers[index])
-        } else {
-          subArray.push(0)
-        }
-      })
-      tabArray.push(subArray)
-    }
+    const tabArray: number[][] = Array.from({ length: 4 }, () =>
+      Array(frets.length).fill(0)
+    )
+
+    frets.forEach((fret, index) => {
+      if (fret > 0 && fret <= 4) {
+        tabArray[fret - 1][index] = fingers[index]
+      }
+    })
+
     return tabArray
   }
 
   const tabArray = createTabArray(positions.frets, positions.fingers)
 
   return (
-    <div className='tab-container'>
+    <div className='tab-container' data-testid='tab-container'>
       <TabHeader
         tone={tone}
         suffix={suffix}
