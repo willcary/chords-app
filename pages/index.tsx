@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Navbar from '@/components/Navbar'
-import { Inter } from "next/font/google"
+import { Inter } from 'next/font/google'
 import Tabs from '@/components/Tabs'
 import exampleChord from '@/assets/exampleChord'
 
