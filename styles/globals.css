@@ -86,13 +86,13 @@ a {
 /* Tab Styles */
 .tabs {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   gap: 1rem;
 }
 
 .tab-container {
-  min-width: 16rem;
-  max-width: 21.25rem;
+  min-width: 12rem;
+  max-width: 16rem;
   aspect-ratio: 1/1.14;
   display: flex;
   flex-direction: column;
@@ -104,7 +104,7 @@ a {
 }
 
 .tab-header {
-  width: 15.375rem;
+  width: 11.53rem;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -115,8 +115,8 @@ a {
 
 .tab-header-o,
 .tab-header-x {
-  width: 1rem;
-  height: 1rem;
+  width: 0.8rem;
+  height: 0.8rem;
   background-color: var(--clr-transparent);
 }
 
@@ -128,7 +128,7 @@ a {
 .tab-header-x:before,
 .tab-header-x:after {
   content: '';
-  height: 1rem;
+  height: 0.8rem;
   border-left: 3px solid var(--clr-white);
   border-radius: 1.5px;
   position: absolute;
@@ -145,14 +145,14 @@ a {
 
 .base-fret {
   position: absolute;
-  top: 2.7rem;
-  left: -1.2rem;
+  top: 2.025rem;
+  left: -1rem;
   font-size: 2rem;
 }
 
 .fret {
-  width: 12.813rem;
-  height: 4.375rem;
+  width: 9.61rem;
+  height: 3.28rem;
   margin: 0 auto;
   border-top: solid 1px var(--clr-white);
   border-bottom: solid 1px var(--clr-white);
@@ -163,7 +163,7 @@ a {
 
 .string {
   width: 0;
-  height: 4.375rem;
+  height: 3.25rem;
   background-color: var(--clr-transparent);
   border-left: solid 1px var(--clr-white);
   display: relative;
@@ -191,15 +191,15 @@ a {
 
 .finger {
   position: relative;
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
   background-color: var(--clr-white);
   border-radius: 50%;
-  left: -0.938rem;
-  top: 1.25rem;
+  left: -0.8rem;
+  top: 0.85rem;
   background: var(--clr-primary);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
