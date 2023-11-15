@@ -1,5 +1,5 @@
-import TabHeader from '../tab-header/TabHeader'
-import Fret from './Fret'
+import TabHeader from './tab-header/TabHeader'
+import Fret from './tab-main/Fret'
 interface TabProps {
   tone: string
   suffix: string

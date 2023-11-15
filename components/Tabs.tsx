@@ -1,4 +1,4 @@
-import Tab from './tab/tab-main/Tab'
+import Tab from './tab/Tab'
 
 interface chordInterface {
   tone: string
