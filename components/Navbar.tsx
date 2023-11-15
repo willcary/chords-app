@@ -5,10 +5,10 @@ export default function Navbar() {
   return (
     <nav className='flex justify-center items-center py-8'>
       <Link href='/' className='mx-4'>
-        Home
+        All chords
       </Link>
-      <Link href='/About' className='mx-4'>
-        About
+      <Link href='/MyChords' className='mx-4'>
+        My chords
       </Link>
     </nav>
   )
