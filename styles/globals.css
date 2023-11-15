@@ -40,16 +40,21 @@ body {
 body {
   color: var(--clr-white);
   background: var(--clr-background);
+  text-align: center;
 }
 
 h1 {
   font-size: 2.5rem;
 }
 
+a {
+  color: var(--clr-primary);
+  text-decoration: none;
+}
+
 main,
 nav {
   max-width: 1100px;
-  text-align: center;
   margin: 0 2em;
 }
 
@@ -61,7 +66,7 @@ nav {
   }
 }
 
-nav {
+/* nav {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,12 +75,7 @@ nav {
 
 nav>* {
   margin: 0 1rem;
-}
-
-a {
-  color: var(--clr-primary);
-  text-decoration: none;
-}
+} */
 
 @media (prefers-color-scheme: dark) {
   html {
@@ -84,16 +84,13 @@ a {
 }
 
 /* Tab Styles */
-.tabs {
-  /* display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  gap: 1rem; */
+/* .tabs {
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1em;
-}
+} */
 
 .tab-container {
   width: 16rem;
@@ -102,7 +99,6 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 1rem auto 0;
   padding: 1rem;
   /* border: dotted 1px var(--clr-primary); */
 }
