@@ -20,7 +20,7 @@ export default function Home() {
       </Head>
       <Navbar />
       <main>
-        <h1>Guitar Tabs</h1>
+        <h1>Guitar Chords</h1>
         <Tabs
           tone={exampleChord.key}
           suffix={exampleChord.suffix}

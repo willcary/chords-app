@@ -7,7 +7,7 @@ export default function Navbar() {
       <Link href='/' className='mx-4'>
         All chords
       </Link>
-      <Link href='/MyChords' className='mx-4'>
+      <Link href='/my-chords' className='mx-4'>
         My chords
       </Link>
     </nav>
