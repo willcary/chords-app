@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar'
 import React from 'react'
-import { useState } from 'react'
+import Image from 'next/image'
+import Logo from '@/public/Dsus2.png'
 
 export default function MyChords() {
   return (
@@ -12,6 +13,7 @@ export default function MyChords() {
           This will be a list of added chords to practice from All Chords page.
         </p>
         <p>Play on!</p>
+        <Image src={Logo} alt='logo' className='mx-auto mt-4'></Image>
       </main>
     </div>
   )
