@@ -11,20 +11,31 @@ datasource db {
 }
 
 model AllChords {
-  id        String     @default(cuid()) @id
-  title     String
-  content   String?
-  published Boolean @default(false)
-  author    User?   @relation(fields: [authorId], references: [id])
-  authorId  String?
+  id        Int     @id @default(autoincrement())
+  content   Json
 }
 
-model Users {
-  id            String       @default(cuid()) @id
-  name          String?
-  email         String?   @unique
-  createdAt     DateTime  @default(now()) @map(name: "created_at")
-  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
-  posts         Post[]
-  @@map(name: "users")
+model SelectedChords {
+    id          String @id @default(uuid())
+    tone        String
+    suffix      String
+    positions   Json
+    version     Int
+    users        String[]
+    userIds      String[]
+    selectedBy  String[]
+    createdAt   DateTime @default(now())
+}
+
+model User {
+  id            String       @id @default(uuid())
+  userName      String
+  role          Role         @default(BASIC)
+  selectedChords        String[]
+  updatedAt DateTime    @updatedAt
+}
+
+enum Role {
+    BASIC
+    ADMIN
 }
