@@ -26,7 +26,8 @@
     "__tests__/tab/tab-header/symbols/TabHeaderO.test.js",
     "__tests__/tab/tab-header/symbols/TabHeaderX.test.js",
     "__tests__/tab/tab-header/symbols/TabHeaderO.test.js",
-    "__tests__/tab/tab-header/TabHeader.test.js"
+    "__tests__/tab/tab-header/TabHeader.test.js",
+    "pages/api/auth/[auth0]/[auth0].js"
   ],
   "exclude": ["node_modules"]
 }
