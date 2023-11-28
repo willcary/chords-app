@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar'
 import React from 'react'
 import Image from 'next/image'
 import Logo from '@/public/Dsus2.png'
+import Link from 'next/link'
 
 export default function MyChords() {
   return (
@@ -10,7 +11,7 @@ export default function MyChords() {
       <main>
         <h1>My Chords</h1>
         <p>
-          <a href='/api/auth/login'>Login</a>
+          <Link href='/api/auth/login'>Login</Link>
         </p>
         <p>
           This will be a list of added chords to practice from All Chords page.
@@ -19,7 +20,7 @@ export default function MyChords() {
         <Image src={Logo} alt='logo' className='mx-auto mt-4'></Image>
 
         <p>
-          <a href='/api/auth/logout'>logout</a>
+          <Link href='/api/auth/logout'>logout</Link>
         </p>
       </main>
     </div>
