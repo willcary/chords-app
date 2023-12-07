@@ -12,6 +12,7 @@
   --clr-white: #ffffff;
   --clr-dark: #3b3b3b;
   --clr-primary: #38b27f;
+  --clr-secondary: #b34a37;
   --clr-transparent: #ffffff00;
 }
 
@@ -59,7 +60,6 @@ nav {
 }
 
 @media (min-width: 1164px) {
-
   main,
   nav {
     margin: 0 auto;
