@@ -12,7 +12,7 @@ export default function MyChords() {
       <main>
         <h1>My Chords</h1>
         <p>
-          <Link href='/api/auth/login'>Login</Link>
+          <Link href='/api/auth/login?returnTo=/my-chords'>Login</Link>
         </p>
         <p>
           This will be a list of added chords to practice from All Chords page.
@@ -21,7 +21,7 @@ export default function MyChords() {
         <Image src={Logo} alt='logo' className='mx-auto mt-4'></Image>
 
         <p>
-          <Link href='/api/auth/logout'>logout</Link>
+          <Link href='/api/auth/logout?returnTo=/my-chords'>logout</Link>
         </p>
         <br />
         <hr />
