@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import guitarChordsA from '@/assets/guitarChordsA'
+import guitarChordsA from '@/assets/chords/guitarChordsA'
 
 export default async function handler(
   req: NextApiRequest,
