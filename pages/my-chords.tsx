@@ -18,7 +18,12 @@ export default function MyChords() {
           This will be a list of added chords to practice from All Chords page.
         </p>
         <p>Play on!</p>
-        <Image src={Logo} alt='logo' className='mx-auto mt-4'></Image>
+        <Image
+          src={Logo}
+          alt='logo'
+          className='mx-auto mt-4'
+          priority={true}
+        ></Image>
 
         <p>
           <Link href='/api/auth/logout?returnTo=/my-chords'>logout</Link>
