@@ -1,4 +1,5 @@
 import Tab from './tab/Tab'
+import TabGroup from './tab/TabGroup'
 import { AllChordsProps, SpecificChordProps } from '@/assets/typescript'
 
 //Refactor props to use multiple chords as in the guitar.json file.
@@ -11,21 +12,27 @@ export default function Tabs({ chords }: AllChordsProps) {
       {chords.map((chord) => {
         const { key: tone, suffix, positions } = chord
         return (
+          <TabGroup
+            key={`${tone}-${suffix}`}
+            tone={tone}
+            suffix={suffix}
+            positions={positions}
+          />
           // Change styles accordingly for carousel sliders
-          <div
-            key={`${tone}${suffix}`}
-            className='flex flex-row justify-center flex-wrap gap-4 my-4'
-          >
-            {positions.map((position, version) => (
-              <Tab
-                key={`${tone}${suffix}${position.frets}${position.fingers}`}
-                tone={tone}
-                suffix={suffix}
-                positions={position}
-                version={version + 1}
-              />
-            ))}
-          </div>
+          // <div
+          //   key={`${tone}${suffix}`}
+          //   className='flex flex-row justify-center flex-wrap gap-4 my-4'
+          // >
+          //   {positions.map((position, version) => (
+          //     <Tab
+          //       key={`${tone}${suffix}${position.frets}${position.fingers}`}
+          //       tone={tone}
+          //       suffix={suffix}
+          //       positions={position}
+          //       version={version + 1}
+          //     />
+          //   ))}
+          // </div>
         )
       })}
       {/* {chords.map((chord): SpecificChordProps => (
