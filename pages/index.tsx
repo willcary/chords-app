@@ -38,7 +38,7 @@ export default function Home({
         {/* Filter btns */}
         <div>
           <div>
-            <p>Key:</p>
+            <p className='gradient-text'>Key:</p>
             <ul className='mx-auto flex flex-row gap-4 justify-center max-w-3xl overflow-auto whitespace-nowrap mb-4'>
               {filterData.keys.map((key) => (
                 <li key={key}>
@@ -50,7 +50,7 @@ export default function Home({
             </ul>
           </div>
           <div>
-            <p>Suffix</p>
+            <p className='gradient-text'>Suffix</p>
             <ul className='mx-auto flex flex-row gap-4 max-w-3xl overflow-auto whitespace-nowrap'>
               {filterData.suffixes.map((suffix) => (
                 <li key={suffix}>
