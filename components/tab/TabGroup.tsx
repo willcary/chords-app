@@ -33,37 +33,52 @@ export default function TabGroup({
           version={currentIndex + 1}
         />
         <div className='carousel-btn-container'>
-          <button className='left' onClick={handlePrevious}>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              height='20'
-              viewBox='0 96 960 960'
-              width='20'
-            >
-              <defs>
-                <linearGradient
-                  id='leftGradient'
-                  x1='0%'
-                  y1='0%'
-                  x2='100%'
-                  y2='0%'
-                >
-                  <stop offset='5%' stop-color='#38b27f' stop-opacity='1' />
-                  <stop offset='60%' stop-color='#fff' stop-opacity='1' />
-                </linearGradient>
-              </defs>
-              <path
-                d='M400 976 0 576l400-400 56 57-343 343 343 343-56 57Z'
-                fill='url(#leftGradient)'
-              />
-            </svg>
+          <button
+            className='left'
+            onClick={handlePrevious}
+            type='button'
+            aria-label={`next ${tone}${suffix} version`}
+          >
+            &lt;
           </button>
-          <button className='right' onClick={handleNext}>
-            <svg
+          <div className='carousel-indicator'>
+            {positions.map((_, index) => (
+              <div
+                key={index}
+                className={`dot ${currentIndex === index ? 'active' : ''}`}
+                onClick={() => handleDotClick(index)}
+              ></div>
+            ))}
+          </div>
+          <button
+            className='right'
+            onClick={handleNext}
+            type='button'
+            aria-label={`next ${tone}${suffix} version`}
+          >
+            &gt;
+          </button>
+        </div>
+      </div>
+      {/* <div className='carousel-indicator'>
+        {positions.map((_, index) => (
+          <div
+            key={index}
+            className={`dot ${currentIndex === index ? 'active' : ''}`}
+            onClick={() => handleDotClick(index)}
+          ></div>
+        ))}
+      </div> */}
+    </div>
+  )
+}
+
+{
+  /* <svg
               xmlns='http://www.w3.org/2000/svg'
-              height='20'
+              height='50'
               viewBox='0 96 960 960'
-              width='20'
+              width='50'
             >
               <defs>
                 <linearGradient
@@ -73,27 +88,36 @@ export default function TabGroup({
                   x2='100%'
                   y2='0%'
                 >
-                  <stop offset='60%' stop-color='#fff' stop-opacity='1' />
-                  <stop offset='5%' stop-color='#38b27f' stop-opacity='1' />
+                  <stop offset='40%' stop-color='#fff' stop-opacity='1' />
+                  <stop offset='95%' stop-color='#ed42d6' stop-opacity='1' />
                 </linearGradient>
               </defs>
               <path
                 d='m304 974-56-57 343-343-343-343 56-57 400 400-400 400Z'
                 fill='url(#rightGradient)'
               />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div className='carousel-indicator'>
-        {positions.map((_, index) => (
-          <div
-            key={index}
-            className={`dot ${currentIndex === index ? 'active' : ''}`}
-            onClick={() => handleDotClick(index)}
-          ></div>
-        ))}
-      </div>
-    </div>
-  )
+            </svg> 
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              height='50'
+              viewBox='0 96 960 960'
+              width='50'
+            >
+              <defs>
+                <linearGradient
+                  id='leftGradient'
+                  x1='0%'
+                  y1='0%'
+                  x2='100%'
+                  y2='0%'
+                >
+                  <stop offset='5%' stop-color='#ed42d6' stop-opacity='1' />
+                  <stop offset='60%' stop-color='#fff' stop-opacity='1' />
+                </linearGradient>
+              </defs>
+              <path
+                d='M400 976 0 576l400-400 56 57-343 343 343 343-56 57Z'
+                fill='url(#leftGradient)'
+              />
+            </svg>*/
 }
