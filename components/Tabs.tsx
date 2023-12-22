@@ -6,7 +6,7 @@ import { AllChordsProps, SpecificChordProps } from '@/assets/typescript'
 export default function Tabs({ chords }: AllChordsProps) {
   return (
     <div
-      className='flex flex-row justify-center flex-wrap gap-4 my-4'
+      className='flex flex-row justify-center flex-wrap gap-x-4 gap-y-8 my-4'
       data-testid='tabs'
     >
       {chords.map((chord) => {
@@ -18,35 +18,8 @@ export default function Tabs({ chords }: AllChordsProps) {
             suffix={suffix}
             positions={positions}
           />
-          // Change styles accordingly for carousel sliders
-          // <div
-          //   key={`${tone}${suffix}`}
-          //   className='flex flex-row justify-center flex-wrap gap-4 my-4'
-          // >
-          //   {positions.map((position, version) => (
-          //     <Tab
-          //       key={`${tone}${suffix}${position.frets}${position.fingers}`}
-          //       tone={tone}
-          //       suffix={suffix}
-          //       positions={position}
-          //       version={version + 1}
-          //     />
-          //   ))}
-          // </div>
         )
       })}
-      {/* {chords.map((chord): SpecificChordProps => (
-               
-      ))} */}
-      {/* {positions.map((position, version) => (
-        <Tab
-          key={`${tone}-${suffix}-${position.frets}`}
-          tone='D'
-          suffix='sus2'
-          positions={position}
-          version={version + 1}
-        />
-      ))} */}
     </div>
   )
 }
