@@ -1,17 +1,17 @@
-export interface AllChordsProps {
-  [guitarChordKey: string]: {
-    key: string
-    suffix: string
-    positions: {
-      frets: number[]
-      fingers: number[]
-      baseFret: number
-      barres: number[]
-      capo?: boolean
-      midi?: number[]
-    }[]
-  }[]
-}
+// export interface AllChordsProps {
+//   [guitarChordKey: string]: {
+//     key: string
+//     suffix: string
+//     positions: {
+//       frets: number[]
+//       fingers: number[]
+//       baseFret: number
+//       barres: number[]
+//       capo?: boolean
+//       midi?: number[]
+//     }[]
+//   }[]
+// }
 
 export interface ChordPositionProps {
   frets: number[]
@@ -39,4 +39,16 @@ export interface SpecificChordProps {
     capo?: boolean
     midi?: number[]
   }[]
+}
+
+export interface GuitarChordsFilterDataProps {
+  main: {
+    strings: number
+    fretsOnChord: number
+    name: string
+    numberOfChords: number
+  }
+  tunings: { standard: string[] }
+  keys: string[]
+  suffixes: string[]
 }

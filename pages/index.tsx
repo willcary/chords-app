@@ -3,33 +3,13 @@ import Head from 'next/head'
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 import Navbar from '@/components/Navbar'
 import { Inter } from 'next/font/google'
-import FilterBtns from '@/components/tab/FilterBtns'
-import Tabs from '@/components/Tabs'
-import { GuitarChordProps } from '@/assets/typescript'
-import { guitarChordsFilterData as filterData } from '@/assets/chords/guitarChordsFilterData'
-import guitarChordsC from '@/assets/chords/guitarChordsC'
+import TabContainer from '@/components/tab/TabContainer'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({
-  chordsC,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
-  const [chords, setChords] = useState<GuitarChordProps[]>(guitarChordsC)
-
-  async function handleFetchChords(chordName: string) {
-    if (chordName.endsWith('#')) {
-      chordName = chordName.replace(/#$/, 'Sharp')
-    }
-    if (chordName.endsWith('b')) {
-      chordName = chordName.replace(/b$/, 'Flat')
-    }
-    const res = await fetch(`http://localhost:3000/api/${chordName}`)
-    const fetchedChordsObj: GuitarChordProps[] = await res.json()
-    const fetchedChords: GuitarChordProps[] = Object.values(
-      fetchedChordsObj
-    )[0] as unknown as GuitarChordProps[]
-    setChords(fetchedChords)
-  }
+export default function Home() {
+  // }: { InferGetStaticPropsType<typeof getStaticProps>, searchParams: { [key: string]: string | string[] | undefined }}) {
 
   return (
     <>
@@ -45,25 +25,19 @@ export default function Home({
       <Navbar />
       <main>
         <h1>Guitar Chords</h1>
-        {/* Filter btns */}
-        <FilterBtns
-          filterData={filterData}
-          handleFetchChords={handleFetchChords}
-        />
-        <button onClick={() => handleFetchChords('C#')}>Click to fetch</button>
-        <Tabs chords={chords} />
+        <TabContainer />
       </main>
     </>
   )
 }
 
-export const getStaticProps = (async () => {
-  const res = await fetch('http://localhost:3000/api/C')
-  const chordsC: GuitarChordProps[] = await res.json()
+// export const getStaticProps = (async () => {
+//   const res = await fetch('http://localhost:3000/api/C')
+//   const chordsC: GuitarChordProps[] = await res.json()
 
-  return {
-    props: {
-      chordsC,
-    },
-  }
-}) satisfies GetStaticProps<{ chordsC: GuitarChordProps[] }>
+//   return {
+//     props: {
+//       chordsC,
+//     },
+//   }
+// }) satisfies GetStaticProps<{ chordsC: GuitarChordProps[] }>
