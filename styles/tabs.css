@@ -19,7 +19,7 @@
   background: linear-gradient(
     90deg,
     var(--clr-white) 40%,
-    var(--clr-primary) 50%,
+    var(--clr-secondary) 50%,
     var(--clr-white) 60%
   );
   background-size: 300%;

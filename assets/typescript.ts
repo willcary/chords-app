@@ -13,6 +13,21 @@ export interface AllChordsProps {
   }[]
 }
 
+export interface ChordPositionProps {
+  frets: number[]
+  fingers: number[]
+  baseFret: number
+  barres: number[]
+  capo?: boolean
+  midi?: number[]
+}
+
+export interface GuitarChordProps {
+  key: string
+  suffix: string
+  positions: ChordPositionProps[]
+}
+
 export interface SpecificChordProps {
   tone: string
   suffix: string

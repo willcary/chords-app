@@ -4,7 +4,7 @@ import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 import Navbar from '@/components/Navbar'
 import { Inter } from 'next/font/google'
 import Tabs from '@/components/Tabs'
-import { AllChordsProps } from '@/assets/typescript'
+import { GuitarChordProps } from '@/assets/typescript'
 import { guitarChordsFilterData as filterData } from '@/assets/chords/guitarChordsFilterData'
 import guitarChordsC from '@/assets/chords/guitarChordsC'
 
@@ -13,12 +13,21 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home({
   chordsC,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const [chords, setChords] = useState(guitarChordsC)
-  async function fetchNewChords() {
-    const res = await fetch('http://localhost:3000/api/G')
-    const chordsG: AllChordsProps = await res.json()
-    const g = chordsG
-    console.log(g)
+  const [chords, setChords] = useState<GuitarChordProps[]>(guitarChordsC)
+
+  async function handleFetchChords(chordName: string) {
+    if (chordName.endsWith('#')) {
+      chordName = chordName.replace(/#$/, 'Sharp')
+    }
+    if (chordName.endsWith('b')) {
+      chordName = chordName.replace(/b$/, 'Flat')
+    }
+    const res = await fetch(`http://localhost:3000/api/${chordName}`)
+    const fetchedChordsObj: GuitarChordProps[] = await res.json()
+    const fetchedChords: GuitarChordProps[] = Object.values(
+      fetchedChordsObj
+    )[0] as unknown as GuitarChordProps[]
+    setChords(fetchedChords)
   }
 
   return (
@@ -42,9 +51,7 @@ export default function Home({
             <ul className='mx-auto flex flex-row gap-4 justify-center max-w-3xl overflow-auto whitespace-nowrap mb-4'>
               {filterData.keys.map((key) => (
                 <li key={key}>
-                  <button onClick={() => console.log(`${key} was clicked`)}>
-                    {key}
-                  </button>
+                  <button onClick={() => handleFetchChords(key)}>{key}</button>
                 </li>
               ))}
             </ul>
@@ -62,8 +69,8 @@ export default function Home({
             </ul>
           </div>
         </div>
+        <button onClick={() => handleFetchChords('C#')}>Click to fetch</button>
         <Tabs chords={chords} />
-        <button onClick={() => fetchNewChords()}>Click to fetch</button>
       </main>
     </>
   )
@@ -71,11 +78,11 @@ export default function Home({
 
 export const getStaticProps = (async () => {
   const res = await fetch('http://localhost:3000/api/C')
-  const chordsC: AllChordsProps = await res.json()
+  const chordsC: GuitarChordProps[] = await res.json()
 
   return {
     props: {
       chordsC,
     },
   }
-}) satisfies GetStaticProps<{ chordsC: AllChordsProps }>
+}) satisfies GetStaticProps<{ chordsC: GuitarChordProps[] }>

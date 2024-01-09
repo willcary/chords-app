@@ -1,9 +1,9 @@
 import Tab from './tab/Tab'
 import TabGroup from './tab/TabGroup'
-import { AllChordsProps, SpecificChordProps } from '@/assets/typescript'
+import { GuitarChordProps, SpecificChordProps } from '@/assets/typescript'
 
 //Refactor props to use multiple chords as in the guitar.json file.
-export default function Tabs({ chords }: AllChordsProps) {
+export default function Tabs({ chords }: { chords: GuitarChordProps[] }) {
   return (
     <div
       className='flex flex-row justify-center flex-wrap gap-x-4 gap-y-8 my-4'
