@@ -3,6 +3,7 @@ import Head from 'next/head'
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 import Navbar from '@/components/Navbar'
 import { Inter } from 'next/font/google'
+import FilterBtns from '@/components/tab/FilterBtns'
 import Tabs from '@/components/Tabs'
 import { GuitarChordProps } from '@/assets/typescript'
 import { guitarChordsFilterData as filterData } from '@/assets/chords/guitarChordsFilterData'
@@ -45,30 +46,10 @@ export default function Home({
       <main>
         <h1>Guitar Chords</h1>
         {/* Filter btns */}
-        <div>
-          <div>
-            <p className='gradient-text'>Key:</p>
-            <ul className='mx-auto flex flex-row gap-4 justify-center max-w-3xl overflow-auto whitespace-nowrap mb-4'>
-              {filterData.keys.map((key) => (
-                <li key={key}>
-                  <button onClick={() => handleFetchChords(key)}>{key}</button>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <p className='gradient-text'>Suffix</p>
-            <ul className='mx-auto flex flex-row gap-4 max-w-3xl overflow-auto whitespace-nowrap'>
-              {filterData.suffixes.map((suffix) => (
-                <li key={suffix}>
-                  <button onClick={() => console.log(`${suffix} was clicked`)}>
-                    {suffix}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        <FilterBtns
+          filterData={filterData}
+          handleFetchChords={handleFetchChords}
+        />
         <button onClick={() => handleFetchChords('C#')}>Click to fetch</button>
         <Tabs chords={chords} />
       </main>
