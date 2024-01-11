@@ -45,7 +45,7 @@ export default function Tabs({
           )
         })
       ) : (
-        <p>No chords available...</p>
+        <p>No chords available.</p>
       )}
     </div>
   )

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import TabHeaderO from './symbols/TabHeaderO'
 import TabHeaderX from './symbols/TabHeaderX'
 
@@ -7,7 +8,6 @@ interface TabHeaderProps {
   baseFret: number
   frets: number[]
   version: number
-  handleFetchChords: any
 }
 
 export default function TabHeader({
@@ -16,18 +16,16 @@ export default function TabHeader({
   baseFret,
   frets,
   version,
-  handleFetchChords,
 }: TabHeaderProps) {
   return (
     <>
-      <p
-        className='text-xl cursor-pointer'
-        onClick={() => handleFetchChords(tone, suffix)}
-      >
-        {tone}
-        <span className='text-xs'>{suffix}</span>{' '}
-        <span className='text-sm italic'>(v{version})</span>
-      </p>
+      <Link href={`?${new URLSearchParams({ key: tone, suffix })}`}>
+        <p className='text-xl cursor-pointer'>
+          {tone}
+          <span className='text-xs'>{suffix}</span>{' '}
+          <span className='text-sm italic'>(v{version})</span>
+        </p>
+      </Link>
       <div className='tab-header' data-testid='tab-header'>
         {frets.map((fret: number, index: number) => {
           return fret === -1 ? (

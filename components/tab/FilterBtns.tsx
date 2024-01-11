@@ -1,28 +1,18 @@
 'use client'
 
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
+import { useState } from 'react'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
 import { GuitarChordsFilterDataProps } from '@/assets/typescript'
 
 export default function FilterBtns({
   filterData,
-  handleFetchChords,
+  selectedKey,
+  selectedSuffix,
 }: {
   filterData: GuitarChordsFilterDataProps
-  handleFetchChords: any
+  selectedKey: string
+  selectedSuffix: string
 }) {
-  const router = useRouter()
-  const searchParams = useSearchParams()
-
-  const selectedKey = (searchParams.get('key') || 'C') as string
-  const selectedSuffix = (searchParams.get('suffix') || '') as string
-
-  useEffect(() => {
-    handleFetchChords(selectedKey, selectedSuffix)
-  }, [router.query.key, router.query.suffix])
-
   return (
     <div>
       <div>
@@ -47,12 +37,22 @@ export default function FilterBtns({
         <ul className='mx-auto flex flex-row gap-4 max-w-3xl overflow-auto whitespace-nowrap'>
           {filterData.suffixes.map((suffix: string) => (
             <li key={suffix}>
-              <Link
-                href={`?${new URLSearchParams({ key: selectedKey, suffix })}`}
-                className={suffix === selectedSuffix ? 'text-secondaryClr' : ''}
-              >
-                {suffix}
-              </Link>
+              {selectedSuffix !== suffix ? (
+                <Link
+                  href={`?${new URLSearchParams({ key: selectedKey, suffix })}`}
+                >
+                  {suffix}
+                </Link>
+              ) : (
+                <Link
+                  href={`?${new URLSearchParams({
+                    key: selectedKey,
+                  })}`}
+                  className='text-secondaryClr'
+                >
+                  {suffix}
+                </Link>
+              )}
             </li>
           ))}
         </ul>
