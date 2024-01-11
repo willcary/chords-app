@@ -7,6 +7,7 @@ interface TabHeaderProps {
   baseFret: number
   frets: number[]
   version: number
+  handleFetchChords: any
 }
 
 export default function TabHeader({
@@ -15,10 +16,14 @@ export default function TabHeader({
   baseFret,
   frets,
   version,
+  handleFetchChords,
 }: TabHeaderProps) {
   return (
     <>
-      <p className='text-xl'>
+      <p
+        className='text-xl cursor-pointer'
+        onClick={() => handleFetchChords(tone, suffix)}
+      >
         {tone}
         <span className='text-xs'>{suffix}</span>{' '}
         <span className='text-sm italic'>(v{version})</span>

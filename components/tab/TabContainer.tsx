@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import FilterBtns from '@/components/tab/FilterBtns'
-import Tabs from '@/components/Tabs'
+import Tabs from '@/components/tab/Tabs'
 import { GuitarChordProps } from '@/assets/typescript'
 import { guitarChordsFilterData as filterData } from '@/assets/chords/guitarChordsFilterData'
 import guitarChordsC from '@/assets/chords/guitarChordsC'
@@ -34,7 +34,7 @@ export default function TabContainer() {
         filterData={filterData}
         handleFetchChords={handleFetchChords}
       />
-      <Tabs chords={chords} />
+      <Tabs chords={chords} handleFetchChords={handleFetchChords} />
     </>
   )
 }

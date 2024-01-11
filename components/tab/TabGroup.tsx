@@ -5,6 +5,7 @@ export default function TabGroup({
   tone,
   suffix,
   positions,
+  handleFetchChords,
 }: SpecificChordProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
@@ -31,6 +32,7 @@ export default function TabGroup({
           suffix={suffix}
           positions={positions[currentIndex]}
           version={currentIndex + 1}
+          handleFetchChords={handleFetchChords}
         />
         <div className='carousel-btn-container'>
           <button
@@ -60,64 +62,6 @@ export default function TabGroup({
           </button>
         </div>
       </div>
-      {/* <div className='carousel-indicator'>
-        {positions.map((_, index) => (
-          <div
-            key={index}
-            className={`dot ${currentIndex === index ? 'active' : ''}`}
-            onClick={() => handleDotClick(index)}
-          ></div>
-        ))}
-      </div> */}
     </div>
   )
-}
-
-{
-  /* <svg
-              xmlns='http://www.w3.org/2000/svg'
-              height='50'
-              viewBox='0 96 960 960'
-              width='50'
-            >
-              <defs>
-                <linearGradient
-                  id='rightGradient'
-                  x1='0%'
-                  y1='0%'
-                  x2='100%'
-                  y2='0%'
-                >
-                  <stop offset='40%' stop-color='#fff' stop-opacity='1' />
-                  <stop offset='95%' stop-color='#ed42d6' stop-opacity='1' />
-                </linearGradient>
-              </defs>
-              <path
-                d='m304 974-56-57 343-343-343-343 56-57 400 400-400 400Z'
-                fill='url(#rightGradient)'
-              />
-            </svg> 
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              height='50'
-              viewBox='0 96 960 960'
-              width='50'
-            >
-              <defs>
-                <linearGradient
-                  id='leftGradient'
-                  x1='0%'
-                  y1='0%'
-                  x2='100%'
-                  y2='0%'
-                >
-                  <stop offset='5%' stop-color='#ed42d6' stop-opacity='1' />
-                  <stop offset='60%' stop-color='#fff' stop-opacity='1' />
-                </linearGradient>
-              </defs>
-              <path
-                d='M400 976 0 576l400-400 56 57-343 343 343 343-56 57Z'
-                fill='url(#leftGradient)'
-              />
-            </svg>*/
 }

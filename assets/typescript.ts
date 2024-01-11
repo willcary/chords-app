@@ -39,6 +39,7 @@ export interface SpecificChordProps {
     capo?: boolean
     midi?: number[]
   }[]
+  handleFetchChords: any
 }
 
 export interface GuitarChordsFilterDataProps {

@@ -34,6 +34,7 @@ export default function FilterBtns({
                 href={`?${new URLSearchParams({
                   key,
                 })}`}
+                className={key === selectedKey ? 'text-secondaryClr' : ''}
               >
                 {key}
               </Link>
@@ -48,6 +49,7 @@ export default function FilterBtns({
             <li key={suffix}>
               <Link
                 href={`?${new URLSearchParams({ key: selectedKey, suffix })}`}
+                className={suffix === selectedSuffix ? 'text-secondaryClr' : ''}
               >
                 {suffix}
               </Link>

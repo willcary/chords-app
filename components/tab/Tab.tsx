@@ -12,9 +12,16 @@ interface TabProps {
     midi?: number[]
   }
   version: number
+  handleFetchChords: any
 }
 
-export default function Tab({ tone, suffix, positions, version }: TabProps) {
+export default function Tab({
+  tone,
+  suffix,
+  positions,
+  version,
+  handleFetchChords,
+}: TabProps) {
   function createTabArray(frets: number[], fingers: number[]): number[][] {
     const tabArray: number[][] = Array.from({ length: 4 }, () =>
       Array(frets.length).fill(0)
@@ -39,6 +46,7 @@ export default function Tab({ tone, suffix, positions, version }: TabProps) {
         baseFret={positions.baseFret}
         frets={positions.frets}
         version={version}
+        handleFetchChords={handleFetchChords}
       />
       {tabArray.map((tab: number[], index: number) => {
         return <Fret key={`${tone}${suffix}-${index}`} strings={tab} />

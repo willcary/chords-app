@@ -98,6 +98,7 @@
   justify-content: space-around;
   align-items: center;
   margin: 1em auto;
+  cursor: pointer;
 }
 
 .tab-header-o,

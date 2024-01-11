@@ -11,8 +11,8 @@
   --clr-background: #404040;
   --clr-white: #ffffff;
   --clr-dark: #3b3b3b;
-  --clr-primary: #38b27f;
-  --clr-secondary: #ed42d6;
+  --clr-primary: #45c48d;
+  --clr-secondary: #f584e6;
   --clr-transparent: #ffffff00;
 }
 
@@ -21,7 +21,8 @@
     --clr-background: #dcdcdc;
     --clr-white: #3b3b3b;
     --clr-dark: #fff;
-    --clr-primary: #38b27f;
+    --clr-primary: #2a845d;
+    --clr-secondary: #d214b9;
     --clr-transparent: #ffffff00;
   }
 }
@@ -64,9 +65,11 @@ nav {
   margin-left: auto;
   margin-right: auto;
   background-color: var(--clr-white);
-  background-image: linear-gradient(25deg,
-      var(--clr-secondary) 0%,
-      var(--clr-white) 50%);
+  background-image: linear-gradient(
+    25deg,
+    var(--clr-secondary) 0%,
+    var(--clr-white) 50%
+  );
   background-size: 100%;
   -webkit-background-clip: text;
   -moz-background-clip: text;
@@ -75,7 +78,6 @@ nav {
 }
 
 @media (min-width: 1164px) {
-
   main,
   nav {
     margin: 0 auto;
