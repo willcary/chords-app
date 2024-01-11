@@ -8,33 +8,19 @@ import guitarChordsC from '@/assets/chords/guitarChordsC'
 
 export default function TabContainer() {
   const [chords, setChords] = useState<GuitarChordProps[]>(guitarChordsC)
-  const [filteredChords, setFilteredChords] =
-    useState<GuitarChordProps[]>(guitarChordsC)
 
-  useEffect(() => {
-    setFilteredChords(chords)
-  }, chords)
-  function handleFilterSuffix(suffix: string) {
-    // !!--- Bug Here, need to reset when fetching different key/chords and update filteredChords with new key/chords
-    // Also, ideally this would be filtered within the API call and not here. To look into.
-    if (!suffix) {
-      setFilteredChords(chords)
-      return
+  async function handleFetchChords(key: string, suffix: string) {
+    if (key.endsWith('#')) {
+      key = key.replace(/#$/, 'Sharp')
     }
-    const updatedFilteredChords = chords.filter(
-      (chord) => chord.suffix === suffix
-    )
-    setFilteredChords(updatedFilteredChords)
-  }
-
-  async function handleFetchChords(chordName: string) {
-    if (chordName.endsWith('#')) {
-      chordName = chordName.replace(/#$/, 'Sharp')
+    if (key.endsWith('b')) {
+      key = key.replace(/b$/, 'Flat')
     }
-    if (chordName.endsWith('b')) {
-      chordName = chordName.replace(/b$/, 'Flat')
-    }
-    const res = await fetch(`http://localhost:3000/api/${chordName}`)
+    const apiUrl = suffix
+      ? `http://localhost:3000/api/${key}?suffix=${suffix}`
+      : `http://localhost:3000/api/${key}`
+    console.log(apiUrl)
+    const res = await fetch(apiUrl)
     const fetchedChordsObj: GuitarChordProps[] = await res.json()
     const fetchedChords: GuitarChordProps[] = Object.values(
       fetchedChordsObj
@@ -47,9 +33,8 @@ export default function TabContainer() {
       <FilterBtns
         filterData={filterData}
         handleFetchChords={handleFetchChords}
-        handleFilterSuffix={handleFilterSuffix}
       />
-      <Tabs chords={filteredChords} />
+      <Tabs chords={chords} />
     </>
   )
 }

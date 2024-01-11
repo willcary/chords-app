@@ -9,11 +9,9 @@ import { GuitarChordsFilterDataProps } from '@/assets/typescript'
 export default function FilterBtns({
   filterData,
   handleFetchChords,
-  handleFilterSuffix,
 }: {
   filterData: GuitarChordsFilterDataProps
   handleFetchChords: any
-  handleFilterSuffix: any
 }) {
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -22,11 +20,8 @@ export default function FilterBtns({
   const selectedSuffix = (searchParams.get('suffix') || '') as string
 
   useEffect(() => {
-    handleFetchChords(selectedKey)
-  }, [router.query.key])
-  useEffect(() => {
-    handleFilterSuffix(selectedSuffix)
-  }, [router.query.suffix])
+    handleFetchChords(selectedKey, selectedSuffix)
+  }, [router.query.key, router.query.suffix])
 
   return (
     <div>
@@ -38,7 +33,6 @@ export default function FilterBtns({
               <Link
                 href={`?${new URLSearchParams({
                   key,
-                  suffix: selectedSuffix,
                 })}`}
               >
                 {key}
