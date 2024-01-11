@@ -46,7 +46,6 @@ export default function Tab({
         baseFret={positions.baseFret}
         frets={positions.frets}
         version={version}
-        handleFetchChords={handleFetchChords}
       />
       {tabArray.map((tab: number[], index: number) => {
         return <Fret key={`${tone}${suffix}-${index}`} strings={tab} />
