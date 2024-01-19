@@ -35,12 +35,15 @@ export default function TabContainer() {
         ? `${localDevUrlBase}${key}?suffix=${suffix}`
         : `${localDevUrlBase}${key}`
     } else {
-      const apiUrl = suffix
+      apiUrl = suffix
         ? `${prodUrlBase}${key}?suffix=${suffix}`
         : `${prodUrlBase}${key}`
     }
 
     const res = await fetch(apiUrl)
+    if (!res.ok) {
+      throw new Error('Failed to fetch chords. Status: ' + res.status)
+    }
     const fetchedChordsObj: GuitarChordProps[] = await res.json()
     const fetchedChords: GuitarChordProps[] = Object.values(
       fetchedChordsObj
