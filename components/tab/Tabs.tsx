@@ -2,7 +2,6 @@ import Tab from './Tab'
 import TabGroup from './TabGroup'
 import { GuitarChordProps, SpecificChordProps } from '@/assets/typescript'
 
-//Refactor props to use multiple chords as in the guitar.json file.
 export default function Tabs({
   chords,
   handleFetchChords,

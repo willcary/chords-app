@@ -26,9 +26,20 @@ export default function TabContainer() {
     if (key.endsWith('b')) {
       key = key.replace(/b$/, 'Flat')
     }
-    const apiUrl = suffix
-      ? `http://localhost:3000/api/${key}?suffix=${suffix}`
-      : `http://localhost:3000/api/${key}`
+    let apiUrl = ''
+    const localDevUrlBase = 'http://localhost:3000/api/'
+    const prodUrlBase = 'https://my-chords.vercel.app/api/'
+    const env = process.env.NODE_ENV
+    if (env === 'development') {
+      apiUrl = suffix
+        ? `${localDevUrlBase}${key}?suffix=${suffix}`
+        : `${localDevUrlBase}${key}`
+    } else {
+      const apiUrl = suffix
+        ? `${prodUrlBase}${key}?suffix=${suffix}`
+        : `${prodUrlBase}${key}`
+    }
+
     const res = await fetch(apiUrl)
     const fetchedChordsObj: GuitarChordProps[] = await res.json()
     const fetchedChords: GuitarChordProps[] = Object.values(
